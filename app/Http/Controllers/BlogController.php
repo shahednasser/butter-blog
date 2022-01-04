@@ -34,7 +34,7 @@ class BlogController extends Controller
     public function sendNotification (Request $request) {
         $butterClient = new ButterCMS(env('BUTTER_API_KEY'));
         //get slug from request
-        $slug = $request->get('data.id');
+        $slug = $request->get('data')['id'];
         //get post
         $postResponse = $butterClient->fetchPost($slug);
         //get all users

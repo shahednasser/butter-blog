@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6b0cae9b696c9c5e957f3b648f36fe6d",
+    "content-hash": "c47d493ae68312bd9c2db0f7cafacd5f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2944,73 +2944,6 @@
                 }
             ],
             "time": "2021-09-25T23:10:38+00:00"
-        },
-        {
-            "name": "spatie/laravel-webhook-client",
-            "version": "2.7.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-webhook-client.git",
-                "reference": "aa6864027c9ca5c184f8a9d974c68dbe8b66b337"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-webhook-client/zipball/aa6864027c9ca5c184f8a9d974c68dbe8b66b337",
-                "reference": "aa6864027c9ca5c184f8a9d974c68dbe8b66b337",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/bus": "^7.0|^8.0",
-                "illuminate/database": "^7.0|^8.0",
-                "illuminate/support": "^7.0|^8.0",
-                "php": "^8.0|^7.4"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^5.0|^6.0",
-                "phpunit/phpunit": "^9.3.8"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Spatie\\WebhookClient\\WebhookClientServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\WebhookClient\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Receive webhooks in Laravel apps",
-            "homepage": "https://github.com/spatie/laravel-webhook-client",
-            "keywords": [
-                "laravel-webhook-client",
-                "spatie"
-            ],
-            "support": {
-                "issues": "https://github.com/spatie/laravel-webhook-client/issues",
-                "source": "https://github.com/spatie/laravel-webhook-client/tree/2.7.5"
-            },
-            "funding": [
-                {
-                    "url": "https://spatie.be/open-source/support-us",
-                    "type": "custom"
-                }
-            ],
-            "time": "2021-01-08T09:22:21+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
