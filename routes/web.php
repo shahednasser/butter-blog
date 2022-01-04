@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +19,5 @@ Route::get('/', [App\Http\Controllers\BlogController::class, 'home']);
 Route::get('/post/{slug}', [App\Http\Controllers\BlogController::class, 'showPost'])->name('post');
 
 Route::post('/post/{slug}', [App\Http\Controllers\BlogController::class, 'addComment'])->name('post.comment');
+
+Route::post('/new-post', [BlogController::class, 'sendNotification']);
