@@ -73,6 +73,6 @@ class NewPost extends Notification
     public function toSlack($notifiable)
     {
         return (new SlackMessage)
-                    ->content('New post ' . $this->name . ' at ' . $this->postUrl);
+                    ->content('New post ' . $this->postTitle . ' at ' . $this->postUrl);
     }
 }
