@@ -18,6 +18,4 @@ Route::get('/', [App\Http\Controllers\BlogController::class, 'home']);
 
 Route::get('/post/{slug}', [App\Http\Controllers\BlogController::class, 'showPost'])->name('post');
 
-Route::post('/post/{slug}', [App\Http\Controllers\BlogController::class, 'addComment'])->name('post.comment');
-
 Route::post('/new-post', [App\Http\Controllers\BlogController::class, 'sendNotification']);
