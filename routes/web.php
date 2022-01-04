@@ -20,4 +20,4 @@ Route::get('/post/{slug}', [App\Http\Controllers\BlogController::class, 'showPos
 
 Route::post('/post/{slug}', [App\Http\Controllers\BlogController::class, 'addComment'])->name('post.comment');
 
-Route::webhook('/new-post', [App\Http\Controllers\BlogController::class, 'sendNotification']);
+Route::webhooks('/new-post', [App\Http\Controllers\BlogController::class, 'sendNotification']);
