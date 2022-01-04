@@ -8,24 +8,22 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Messages\SlackMessage;
 use Illuminate\Notifications\Notification;
 
-class NewComment extends Notification
+class NewPost extends Notification
 {
     use Queueable;
 
-    private $name;
-    private $comment;
     private $postTitle;
+    private $postUrl;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($name, $comment, $postTitle)
+    public function __construct($postTitle, $postUrl)
     {
-        $this->name = $name;
-        $this->comment = $comment;
         $this->postTitle = $postTitle;
+        $this->postUrl = $postUrl;
     }
 
     /**
@@ -75,6 +73,6 @@ class NewComment extends Notification
     public function toSlack($notifiable)
     {
         return (new SlackMessage)
-                    ->content('New comment by ' . $this->name . ' on ' . $this->postTitle . ': ' . $this->comment);
+                    ->content('New post ' . $this->name . ' at ' . $this->postUrl);
     }
 }

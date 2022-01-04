@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Notifications\NewComment;
+use App\Notifications\NewPost;
 use Illuminate\Http\Request;
 use ButterCMS\ButterCMS;
 use GuzzleHttp\Exception\RequestException;
@@ -31,33 +31,17 @@ class BlogController extends Controller
         return view('post', ['post' => $postResponse->getPost(), 'errorMessage' => session('form-error'), 'successMessage' => session('form-success')]);
     }
 
-    public function addComment (Request $request, $slug) {
+    public function sendNotification (Request $request) {
         $butterClient = new ButterCMS(env('BUTTER_API_KEY'));
-        //check if post exists
-        try {
-            $postResponse = $butterClient->fetchPost($slug);
-        } catch (RequestException $error) {
-            //in case the post is not found
-            return back()->withInput()->with('form-error', 'Post does not exist');
-        }
-
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|min:1',
-            'comment' => 'required|min:1'
-        ]);
-
-        if ($validator->fails()) {
-            return back()->withInput()->with('form-error', $validator->errors()->first());
-        }
-
+        //get slug from request
+        $slug = $request->get('data.id');
+        //get post
+        $postResponse = $butterClient->fetchPost($slug);
         //get all users
         $users = User::all();
         if ($users->count()) {
             //send notification to slack
-            Notification::sendNow($users, new NewComment($request->get('name'), $request->get('comment'),
-                $postResponse->getPost()->getTitle()));
+            Notification::sendNow($users, new NewPost($postResponse->getPost()->getTitle(), route('post', ['slug' => $postResponse->getPost()->getSlug()])));
         }
-
-        return back()->with('form-success', 'Comment sent successfully');
     }
 }
